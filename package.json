@@ -1,0 +1,22 @@
+{
+  "name": "bundle-gulp-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "gulp": "^5.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-html-minifier-terser": "^7.1.0",
+    "gulp-optimize-images": "^1.1.5",
+    "gulp-replace": "^1.1.4",
+    "gulp-terser": "^2.1.0",
+    "gulp-useref": "^5.0.0"
+  }
+}

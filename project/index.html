@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag & Drop Gallery</title>
+    <!-- build:css assets/css/style.min.css -->
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- endbuild -->
+</head>
+
+<body>
+
+    <header>
+        <h1>Drag & Drop Shopping Cart</h1>
+    </header>
+
+    <main id="mainwrapper">
+        <section id="imageswrapper">
+            <div class="product" data-id="1" data-price="10" data-stock="5">
+                <img src="./images/1.jpg" draggable="true" />
+                <p>Price: $10</p>
+                <p class="stock">Stock: 5</p>
+            </div>
+            <div class="product" data-id="2" data-price="3599" data-stock="2">
+                <img src="./images/3.jpg" draggable="true" />
+                <p>Price: $3599</p>
+                <p class="stock">Stock: 2</p>
+            </div>
+            <div class="product" data-id="3" data-price="199" data-stock="10">
+                <img src="./images/4.jpg" draggable="true" />
+                <p>Price: $199</p>
+                <p class="stock">Stock: 10</p>
+            </div>
+            <div class="product" data-id="4" data-price="4599" data-stock="7">
+                <img src="./images/7.jpg" draggable="true" />
+                <p>Price: $4599</p>
+                <p class="stock">Stock: 7</p>
+            </div>
+            <div class="product" data-id="5" data-price="1899" data-stock="4">
+                <img src="./images/8.jpg" draggable="true" />
+                <p>Price: $1899</p>
+                <p class="stock">Stock: 4</p>
+            </div>
+            <div class="product" data-id="6" data-price="299" data-stock="45">
+                <img src="./images/9.jpg" draggable="true" />
+                <p>Price: $299</p>
+                <p class="stock">Stock: 45</p>
+            </div>
+        </section>
+
+        <section id="dropwrapper">
+            <p class="placeholder">Drop products here</p>
+            <div id="cart"></div>
+            <h3>Total: $<span id="totalPrice">0</span></h3>
+        </section>
+
+        <button id="resetBtn">Reset Cart</button>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Drag & Drop Cart. All Rights Reserved.</p>
+    </footer>
+
+    <!-- build:js assets/js/script.min.js -->
+    <script src="./js/script.js"></script>
+    <!-- endbuild -->
+</body>
+
+</html>
