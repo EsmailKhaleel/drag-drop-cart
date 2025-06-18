@@ -3,7 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Drag & Drop Shopping Cart - Interactive product gallery">
+    <meta name="theme-color" content="#31220b">
     <title>Drag & Drop Gallery</title>
     <!-- build:css assets/css/style.min.css -->
     <link rel="stylesheet" href="./css/style.css">
@@ -13,55 +15,95 @@
 <body>
 
     <header>
+        <img src="./images/logo.png" alt="Logo">
         <h1>Drag & Drop Shopping Cart</h1>
     </header>
 
-    <main id="mainwrapper">
-        <section id="imageswrapper">
+    <main id="mainwrapper">        
+        <section id="imageswrapper">            
+            <div class="product" data-id="0" data-price="129.5" data-stock="8">
+                <div class="product-img-container">
+                    <img src="./images/denim-pioneer.jpg" draggable="true" alt="Pioneer Rugged Denim Jacket" />
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Pioneer Rugged Denim Jacket</h3>
+                    <p class="product-description">Our Pioneer Rugged Denim Jacket is a tribute to those who embody the spirit of adventure.</p>
+                    <p class="product-price">Price: $129.5</p>
+                    <p class="stock">Stock: 8</p>
+                </div>
+            </div>
             <div class="product" data-id="1" data-price="10" data-stock="5">
-                <img src="./images/1.jpg" draggable="true" />
-                <p>Price: $10</p>
-                <p class="stock">Stock: 5</p>
+                <div class="product-img-container">
+                    <img src="./images/dream-gown.jpg" draggable="true" alt="Enchanting Blush Dream Gown" />
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Enchanting Blush Dream Gown</h3>
+                    <p class="product-description">Bask in the glow of elegance with our Enchanting Blush Dream Gown.</p>
+                    <p class="product-price">Price: $10</p>
+                    <p class="stock">Stock: 5</p>
+                </div>
             </div>
             <div class="product" data-id="2" data-price="3599" data-stock="2">
-                <img src="./images/3.jpg" draggable="true" />
-                <p>Price: $3599</p>
-                <p class="stock">Stock: 2</p>
+                <div class="product-img-container">
+                    <img src="./images/merlot-suit.jpg" draggable="true" alt="Classic Merlot Business Suit" />
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Classic Merlot Business Suit</h3>
+                    <p class="product-description">Step into the boardroom with unmatched confidence in our Classic Merlot Business Suit.</p>
+                    <p class="product-price">Price: $3599</p>
+                    <p class="stock">Stock: 2</p>
+                </div>
             </div>
             <div class="product" data-id="3" data-price="199" data-stock="10">
-                <img src="./images/4.jpg" draggable="true" />
-                <p>Price: $199</p>
-                <p class="stock">Stock: 10</p>
+                <div class="product-img-container">
+                    <img src="./images/mocha-overcoat.jpg" draggable="true" alt="Majestic Vintage Mocha Overcoat" />
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Majestic Vintage Mocha Overcoat</h3>
+                    <p class="product-description">Channel timeless sophistication with this stunning mocha overcoat.</p>
+                    <p class="product-price">Price: $199</p>
+                    <p class="stock">Stock: 10</p>
+                </div>
             </div>
             <div class="product" data-id="4" data-price="4599" data-stock="7">
-                <img src="./images/7.jpg" draggable="true" />
-                <p>Price: $4599</p>
-                <p class="stock">Stock: 7</p>
+                <div class="product-img-container">
+                    <img src="./images/moonlight-dress.jpg" draggable="true" alt="Ethereal Moonlight Evening Dress" />
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Ethereal Moonlight Evening Dress</h3>
+                    <p class="product-description">Sweep the room off its feet in our Ethereal Moonlight Evening Dress.</p>
+                    <p class="product-price">Price: $4599</p>
+                    <p class="stock">Stock: 7</p>
+                </div>
             </div>
             <div class="product" data-id="5" data-price="1899" data-stock="4">
-                <img src="./images/8.jpg" draggable="true" />
-                <p>Price: $1899</p>
-                <p class="stock">Stock: 4</p>
+                <div class="product-img-container">
+                    <img src="./images/rain-jacket.jpg" draggable="true" alt="Vintage Sunshine Rain Jacket" />
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Vintage Sunshine Rain Jacket</h3>
+                    <p class="product-description">Brace the showers in style! Our Vintage Sunshine Rain Jacket ensures that you stand out.</p>
+                    <p class="product-price">Price: $1899</p>
+                    <p class="stock">Stock: 4</p>
+                </div>
             </div>
-            <div class="product" data-id="6" data-price="299" data-stock="45">
-                <img src="./images/9.jpg" draggable="true" />
-                <p>Price: $299</p>
-                <p class="stock">Stock: 45</p>
-            </div>
-        </section>
-
+        </section>        
         <section id="dropwrapper">
             <p class="placeholder">Drop products here</p>
+            <div class="cart-headers">
+                <div>Product</div>
+                <div>Details</div>
+                <div></div>
+                <div></div>
+            </div>
             <div id="cart"></div>
-            <h3>Total: $<span id="totalPrice">0</span></h3>
+            <div class="cart-total">
+                <h3>Total: $<span id="totalPrice">0.00</span></h3>
+            </div>
         </section>
 
         <button id="resetBtn">Reset Cart</button>
     </main>
-
-    <footer>
-        <p>&copy; 2025 Drag & Drop Cart. All Rights Reserved.</p>
-    </footer>
 
     <!-- build:js assets/js/script.min.js -->
     <script src="./js/script.js"></script>

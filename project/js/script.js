@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     console.log("JavaScript Loaded After DOM Ready!");
-let products = document.querySelectorAll('.product img');
+let products = document.querySelectorAll('.product');
 let upper = document.getElementById('imageswrapper');
 let lower = document.getElementById('dropwrapper');
 let cart = document.getElementById('cart');
@@ -15,8 +15,9 @@ document.querySelectorAll('.product').forEach(product => {
     initialStock[productId] = stock; // Store original stock
 });
 // Attach drag events
-products.forEach(img => {
-    img.addEventListener('dragstart', startDrag);
+products.forEach(product => {
+    product.setAttribute('draggable', 'true');
+    product.addEventListener('dragstart', startDrag);
 });
 
 upper.addEventListener('dragleave', leaveDrag);
@@ -31,11 +32,12 @@ function startDrag(e) {
     let productId = productDiv.dataset.id;
     let price = parseFloat(productDiv.dataset.price);
     let stock = parseInt(productDiv.dataset.stock);
+    let imgElement = productDiv.querySelector('img');
 
     if (stock > 0) {
         e.dataTransfer.setData('id', productId);
         e.dataTransfer.setData('price', price);
-        e.dataTransfer.setData('imgHTML', e.target.outerHTML);
+        e.dataTransfer.setData('imgHTML', imgElement.outerHTML);
     } else {
         e.preventDefault();
     }
@@ -46,7 +48,6 @@ function dropped(e) {
     let productId = e.dataTransfer.getData('id');
     let price = parseFloat(e.dataTransfer.getData('price'));
     let imgHTML = e.dataTransfer.getData('imgHTML');
-
     let productDiv = document.querySelector(`.product[data-id="${productId}"]`);
     let stockElement = productDiv.querySelector('.stock');
     let stock = parseInt(productDiv.dataset.stock);
@@ -65,11 +66,16 @@ function dropped(e) {
             newCartItem.classList.add('cart-item');
             newCartItem.dataset.id = productId;
             newCartItem.innerHTML = `
-                ${imgHTML}
-                <p>Price: $${price}</p>
-                <p>Quantity: <span class="quantity">1</span></p>
-                <button class="remove-btn">Remove</button>
-            `;
+                    <div class="cart-item-info">
+                        ${imgHTML}
+                        <span class="cart-item-name">${productDiv.querySelector('.product-title').innerText}</span>
+                    </div>
+                    <div class="cart-item-details">
+                        <p class="cart-item-quantity">Qty: <span class="quantity">1</span></p>
+                        <p class="cart-item-price">$${price}</p>
+                    </div>
+                    <button class="remove-btn">Remove</button>
+                `;
             newCartItem.querySelector('.remove-btn').addEventListener('click', () => removeFromCart(productId, price));
             cart.appendChild(newCartItem);
         }
@@ -126,7 +132,7 @@ function leaveDrag(e) {
 function resetCart() {
     cart.innerHTML = '';
     totalPrice = 0;
-    totalPriceElement.innerText = '0';
+    totalPriceElement.innerText = '0.00';
 
     document.querySelectorAll('.product').forEach(product => {
         let productId = product.dataset.id;
